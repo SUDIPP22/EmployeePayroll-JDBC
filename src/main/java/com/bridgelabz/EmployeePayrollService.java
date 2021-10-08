@@ -20,7 +20,7 @@ public class EmployeePayrollService {
      * @param ioService : taking as a parameter
      * @return the list of employees
      */
-    public List<EmployeePayrollData> readEmployeePayrollData(IOService ioService) {
+    public List<EmployeePayrollData> readEmployeePayrollData(IOService ioService) throws EmployeePayrollException {
         if (ioService.equals(IOService.DB_IO))
             this.employeePayrollList = employeePayrollDBService.readData();
         return this.employeePayrollList;

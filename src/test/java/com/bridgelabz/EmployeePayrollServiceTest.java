@@ -17,7 +17,7 @@ public class EmployeePayrollServiceTest {
     }
 
     @Test
-    void givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount() {
+    void givenEmployeePayrollInDB_WhenRetrieved_ShouldMatchEmployeeCount() throws EmployeePayrollException {
         List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollData(DB_IO);
         Assertions.assertEquals(4, employeePayrollData.size());
     }

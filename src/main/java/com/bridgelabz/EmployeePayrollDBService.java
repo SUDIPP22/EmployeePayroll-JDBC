@@ -146,17 +146,9 @@ public class EmployeePayrollDBService {
      *
      * @return employees details
      */
-    public List<EmployeePayrollData> readData() {
+    public List<EmployeePayrollData> readData() throws EmployeePayrollException {
         String sql = "SELECT * FROM employee_payroll";
-        List<EmployeePayrollData> employeePayrollList = new ArrayList<>();
-        try (Connection connection = this.getConnection()) {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
-            employeePayrollList = this.getEmployeePayrollData(resultSet);
-        } catch (SQLException | EmployeePayrollException e) {
-            e.printStackTrace();
-        }
-        return employeePayrollList;
+        return getEmployeePayrollDataUsingDB(sql);
     }
 
     /**
